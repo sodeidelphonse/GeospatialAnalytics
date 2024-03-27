@@ -1,0 +1,54 @@
+
+#--------------------------------------------
+#--- Choropleth map of air pollution data 
+#--------------------------------------------
+
+library(wbstats)
+library(sf)
+library(dplyr)
+library(viridis)
+library(ggspatial)
+library(rnaturalearth) 
+
+
+# search an indicator via the World Bank API
+indicators <- wb_search(pattern = "pollution") 
+d          <- wb_data(indicator = "EN.ATM.PM25.MC.M3", start_date = 2019, end_date = 2019)
+print(d, n = 10)
+
+# Extract Africa map and join the target data
+map.join  <- ne_countries(continent = 'africa', returnclass = "sf")  %>% 
+  select(c("adm0_a3", "name", "iso_a3")) %>% 
+  left_join(d, by = c("iso_a3" = "iso3c"))  %>% 
+  cbind(st_coordinates(st_point_on_surface(.))) 
+head(map.join)
+
+# Labels of countries with highest values (above 75% quantile)
+q75        <- quantile(map.join$EN.ATM.PM25.MC.M3, probs = 0.75, na.rm = TRUE)
+map.labels <- filter(map.join, EN.ATM.PM25.MC.M3 > q75)
+dim(map.labels)
+
+
+# Mapping
+ggplot(map.join) + 
+  geom_sf(aes(fill = EN.ATM.PM25.MC.M3)) +
+  scale_fill_viridis() + 
+  labs(x ="Longitude", y ="Latitude", fill = "PM2.5") + 
+  theme_bw() +
+  
+  # map annotation
+  annotation_north_arrow(location = "tl", height = unit(1,"cm"), width = unit(0.7,"cm")) +
+  annotation_scale(location = "br", bar_cols = c("grey60", "white")) +
+  annotate("text", x = -10, y = -35, size = 2.3, color = "darkblue",
+           label = "Designed by: Idelphonse A.SODE\n Data Source: World Bank Report") +
+  annotate("text", x = 26, y = 38, size = 3.5, fontface = "bold",
+           label = "PM2.5 air pollution in 2019, mean annual exposure \n (micrograms per cubic meter)")+
+  geom_text(data = map.labels, aes(X, Y, label = name), size =1.9, fontface ="bold", colour="white") +
+  
+  # customizing the legend position
+  theme(
+    legend.position = c(.05, .10),
+    legend.justification = c("left", "bottom"),
+    panel.background = element_blank(),
+    panel.border = element_rect(color = "black", fill = NA)
+  )
