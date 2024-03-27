@@ -10,8 +10,7 @@ library(viridis)
 library(ggspatial)
 library(rnaturalearth) 
 
-
-# search an indicator via the World Bank API
+# search an indicator via the World Bank API in Webstats
 indicators <- wb_search(pattern = "pollution") 
 d          <- wb_data(indicator = "EN.ATM.PM25.MC.M3", start_date = 2019, end_date = 2019)
 print(d, n = 10)
