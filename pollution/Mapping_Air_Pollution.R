@@ -22,7 +22,7 @@ head(map.afr)  # check the map attributes
 
 # Join the target data to the map 
 map.join   <-  map.afr %>% 
-  select(c("adm0_a3", "name", "iso_a3"))  %>% 
+  select(adm0_a3, name, iso_a3)  %>% 
   left_join(d, by = c("iso_a3" = "iso3c"))  %>% 
   cbind(st_coordinates(st_point_on_surface(.))) 
 head(map.join)
