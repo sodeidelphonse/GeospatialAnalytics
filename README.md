@@ -1,2 +1,2 @@
-# Geospatial_Analytics
-Repository for spatial data analysis and visualization
+# Geospatial Analytics
+Repository for geospatial data analysis and visualization
