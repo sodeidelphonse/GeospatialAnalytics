@@ -43,11 +43,11 @@ ggplot(map.join) +
   # map annotation
   annotation_north_arrow(location = "tl", height = unit(1,"cm"), width = unit(0.7,"cm")) +
   annotation_scale(location = "br", bar_cols = c("grey60", "white")) +
-  annotate("text", x = -9, y = -35, size = 2.3, color = "darkblue",
+  annotate("text", x = -9, y = -35, size = 2.5, color = "darkblue",
       label = "Designed by: Idelphonse A.SODE\n Source: World Bank (https://data.worldbank.org)") +
   annotate("text", x = 26, y = 38, size = 3.5, fontface = "bold",
            label = "PM2.5 air pollution in 2019, mean annual exposure \n (micrograms per cubic meter)")+
-  geom_text(data = map.labels, aes(X, Y, label = name), size =1.9, fontface ="bold", colour="white") +
+  geom_text(data = map.labels, aes(X, Y, label = name), size =2, fontface ="bold", colour="white") +
   
   # customizing the legend position
   theme(
@@ -58,4 +58,4 @@ ggplot(map.join) +
   )
 
 # Save plot
-ggsave("pollution/Air_pollution_Africa.jpeg", dpi = 300, width = 24, height = 30, units = "cm")
+ggsave("pollution/Air_pollution_Africa.png", dpi = 300, width = 24, height = 28, units = "cm")
