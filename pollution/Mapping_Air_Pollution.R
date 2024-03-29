@@ -27,11 +27,10 @@ map.join   <-  map.afr %>%
   cbind(st_coordinates(st_point_on_surface(.))) 
 head(map.join)
 
-# Labels of countries with highest level of pollution (above 75% quantile)
+# Labels of countries with highest level of pollution (PM25 above 75% quantile)
 q75        <- quantile(map.join$EN.ATM.PM25.MC.M3, probs = 0.75, na.rm = TRUE)
 map.labels <- filter(map.join, EN.ATM.PM25.MC.M3 > q75)
 dim(map.labels)
-
 
 # Mapping
 ggplot(map.join) + 
