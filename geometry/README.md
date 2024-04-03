@@ -1,2 +1,2 @@
-# Geometry and Spatial Topolgy 
-This folder provides the basis to understand the basic applications of *geometry and spatial topology* in geospatial analysis and modeling.
+# Algorithmic geometry for geospatial analysis 
+This folder provides the basis to understand the basic applications of *geometry* in geospatial analysis and modeling.
