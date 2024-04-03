@@ -42,7 +42,7 @@ ggplot(data = st_geometry(DT)) +
   theme_bw()
 
 # Save the plot
-ggsave("geometry/Delaunay_Triangles.png", dpi = 300, width = 24, height = 28, units = "cm")
+ggsave("geometry/DelaunayTriangles.png", dpi = 300, width = 24, height = 28, units = "cm")
 
 
 ## Exercise: Building mesh with INLA library
