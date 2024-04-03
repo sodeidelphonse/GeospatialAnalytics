@@ -1,2 +1,2 @@
 # Algorithmic geometry for geospatial analysis 
-This folder provides the basis to understand the basic applications of *geometry* in geospatial analysis and modeling.
+This folder presents some key concepts and basic applications of the *computational geometry* for geospatial analysis and modeling.
