@@ -7,19 +7,19 @@
 library(rgeos)
 
 # Data
-x = readWKT(paste("POLYGON((0 40,10 50,0 60,40 60,40 100,50 90,60 100,60",
+x  <- readWKT(paste("POLYGON((0 40,10 50,0 60,40 60,40 100,50 90,60 100,60",
                   "60,100 60,90 50,100 40,60 40,60 0,50 10,40 0,40 40,0 40))"))
 
 # Envelope
-env = gEnvelope(x)
+env <- gEnvelope(x)
 
 # boundary
-b = gBoundary(x)
+b <-  gBoundary(x)
 
 # ConvexHull
-ch = gConvexHull(x)
+ch <-  gConvexHull(x)
 
-# Plot of all geometry
+# Plot of each geometry
 plot(x, col = 'blue') 
 plot(env, add = TRUE, lwd = 2)
 plot(b, add = TRUE, col = "red", lwd = 3)
