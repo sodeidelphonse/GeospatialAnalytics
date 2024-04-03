@@ -1,7 +1,9 @@
 
-#--------------------------------------------------------
-#--- Choropleth map of the air pollution data in Africa
-#--------------------------------------------------------
+#------------------------------------------------------------------------------
+#  Choropleth map of the air pollution level in Africa
+#  Designed By: Akoeugnigan Idelphonse SODE
+#  LinkedIn: https://www.linkedin.com/in/idelphonse-akoeugnigan-sode-05015672/
+#-------------------------------------------------------------------------------
 
 library(wbstats)
 library(sf)
@@ -13,8 +15,8 @@ library(rnaturalearth)
 
 # search an indicator via the World Bank API in Webstats
 indicators <- wb_search(pattern = "pollution") 
-d          <- wb_data(indicator = "EN.ATM.PM25.MC.M3", start_date = 2019, end_date = 2019)
-print(d, n = 10)
+df         <- wb_data(indicator = "EN.ATM.PM25.MC.M3", start_date = 2019, end_date = 2019)
+print(df, n = 10)
 
 # Extract the Africa map
 map.afr <- ne_countries(continent = 'africa', returnclass = "sf")
@@ -23,15 +25,14 @@ head(map.afr)  # check the map attributes
 # Join the target data to the map 
 map.join   <-  map.afr %>% 
   select(adm0_a3, name, iso_a3)  %>% 
-  left_join(d, by = c("iso_a3" = "iso3c"))  %>% 
+  left_join(df, by = c("iso_a3" = "iso3c"))  %>% 
   cbind(st_coordinates(st_point_on_surface(.))) 
 head(map.join)
 
-# Labels of countries with highest level of pollution (above 75% quantile)
+# Labels of countries with highest level of pollution (PM25 above 75% quantile)
 q75        <- quantile(map.join$EN.ATM.PM25.MC.M3, probs = 0.75, na.rm = TRUE)
 map.labels <- filter(map.join, EN.ATM.PM25.MC.M3 > q75)
 dim(map.labels)
-
 
 # Mapping
 ggplot(map.join) + 
@@ -57,5 +58,5 @@ ggplot(map.join) +
     panel.border = element_rect(color = "black", fill = NA)
   )
 
-# Save plot
+# Save the plot
 ggsave("pollution/Air_pollution_Africa.png", dpi = 300, width = 24, height = 28, units = "cm")
