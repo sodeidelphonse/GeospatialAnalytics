@@ -1,6 +1,6 @@
 
 #--------------------------------------------------
-#  Geometry and Topology for Spatial Analysis
+#  Geometry for Spatial Analysis
 #  By: Idelphonse SODE, Geosptail Data Scientsit,
 #  University of Abomey-calavi, Benin
 #--------------------------------------------------

@@ -1,8 +1,8 @@
 
 #----------------------------------------------------
-#  Geometry and Topology for Spatial Analysis
-#    By: Idelphonse SODE, Geospatial Data Scientist 
-#      University of Abomey-Calavi, Benin
+#   Geometry for Spatial Analysis
+#   By: Idelphonse SODE, Geospatial Data Scientist 
+#   University of Abomey-Calavi, Benin
 #----------------------------------------------------
 
 library(sp)
