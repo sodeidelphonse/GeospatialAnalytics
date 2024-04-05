@@ -1,5 +1,8 @@
 # Computational geometry for geospatial analysis 
+
 This folder presents some key geometric structures and their applications for geospatial analysis and GIS mapping. In case, your are interested in the algorithmic aspects and other applications of these geometric structures, the book on [Computational Geometry](https://books.google.bj/books?id=9nhHUZpKzeEC) can be useful for you.
+
+## Basic geometric structures
 
 - **Convex hull**: The convex hull or convex envelope of a shape is the smallest set that contains it. Convex hulls have wide applications in mathematics, statistics, combinatorial optimization, economics, geometric modeling, and ethology.
   
@@ -16,4 +19,4 @@ Voronoi diagrams have wide applications including natural sciences (biology, hyd
 ## References 
 - [Convex hull](https://en.wikipedia.org/w/index.php?title=Convex_hull&oldid=1214307526)
 - [Delaunay triangulation](https://fr.wikipedia.org/w/index.php?title=Triangulation_de_Delaunay&oldid=208519853)
-- [Voronoi diagram](https://fr.wikipedia.org/w/index.php?title=Triangulation_de_Delaunay&oldid=208519853)
+- [Voronoi diagram](https://en.wikipedia.org/w/index.php?title=Voronoi_diagram&oldid=1209248480)
