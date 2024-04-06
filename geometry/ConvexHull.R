@@ -13,7 +13,7 @@
 # around the observed data points to reduce computation time in area without data
 # The boundary of a geometry generally serves as the basis for designing a map.
 
-# Start from the rgeos package
+# Start with the rgeos package
 library(rgeos)
 
 # Create the data
@@ -56,7 +56,7 @@ help(meuse)
 sf.pts <- st_as_sf(meuse, coords = c( "x", "y" ), crs = "+init=epsg:28992")
 plot(st_geometry(sf.pts))
 
-# Create the convex hull and convert into spatial vector
+# Create the convex hull polygon
 hull   <- st_convex_hull(st_union(sf.pts))
 
 # ggplot
