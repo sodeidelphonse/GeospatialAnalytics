@@ -13,7 +13,7 @@
 # around the observed data points to reduce computation time in area without data
 # The boundary of a geometry generally serves as the basis for designing a map.
 
-# Start with the rgeos package
+# Start with the rgeos package (we will work with sf later)
 library(rgeos)
 
 # Create the data
@@ -36,14 +36,13 @@ plot(b, add = TRUE, col = "red", lwd = 3)
 plot(ch, border = "green", lwd = 3, add = TRUE)
 
 title("ConvexHull vs Envelope vs Boundary")
-mtext("Source: Adapted from rgeos library", side = 1, cex = .8)
+mtext("Source: Adapted from rgeos", side = 1, cex = .8)
 legend("topright", legend = c("Boundary", "ConvexHull", "Envelope"), 
        col = c("red", "green", "black"), lwd = 1)
 
 
-#-------------------------------
-#-- Application to meuse data 
-#-------------------------------
+#-- B) Application to meuse data 
+
 
 library(sp)
 library(sf)
@@ -56,7 +55,7 @@ help(meuse)
 sf.pts <- st_as_sf(meuse, coords = c( "x", "y" ), crs = "+init=epsg:28992")
 plot(st_geometry(sf.pts))
 
-# Create the convex hull polygon
+# Create the convex hull polygon with sf library
 hull   <- st_convex_hull(st_union(sf.pts))
 
 # ggplot
