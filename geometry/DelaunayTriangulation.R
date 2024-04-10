@@ -46,7 +46,7 @@ ggplot(data = st_geometry(DT)) +
 ggsave("geometry/DelaunayTriangles.png", dpi = 300, width = 24, height = 28, units = "cm")
 
 
-## Exercise: Building a mesh with INLA library
+## Build a mesh (constrained refined Delaunay triangulation) with INLA library
 
 library(INLA)
 
