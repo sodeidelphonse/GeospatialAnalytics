@@ -1,6 +1,6 @@
 # Computational geometry for geospatial analysis 
 
-This folder presents some key geometric structures and their applications for geospatial analysis and GIS mapping. In case, your are interested in the algorithmic aspects and other applications of these geometric structures, the book on [Computational Geometry](https://books.google.bj/books?id=9nhHUZpKzeEC) can be useful for you.
+This folder presents some key geometric structures and their applications for geospatial analysis and GIS mapping. In case, your are interested in the algorithmic aspects and other applications of these geometric structures, the book on [Computational Geometry](https://books.google.bj/books?id=9nhHUZpKzeEC) can be useful for you. R packages avialable to build these geometries include *rgeos*, *sf*, *terra* or *INLA*. 
 
 ## Basic geometric structures
 
